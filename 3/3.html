@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<meta charset="utf-8">
+	
+ 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js">  </script>
+ 	<script src="AR.js-master/aframe/build/aframe-ar.js"> </script>
+	
+ 	<a-scene embedded arjs> 
+
+	<a-marker preset="hiro">
+		
+		<a-box position="0 0.5 0" scale="1 1 1" material='color: yellow;'> </a-box>
+		<a-torus position="-1 1 0" color="green" radius="0.5"
+			 animation="property: rotation; to: 360 360 360; loop: true; dur: 7000"> </a-torus>
+		<a-plane width="1" height="1" rotation="-90 0 0"
+			 position="0 0 -1" color="blue"> </a-plane>
+		
+		<a-text rotation="-90 0 0" color='red' width="10" position="-1 0 0.75"
+			 value="Bye, Cruel World!"
+			 animation="property: position; to: 1 0 0.75; loop: true; dur: 10000"
+			 > </a-text>
+	</a-marker>
+	<a-entity camera> </a-entity>
+	</a-scene>
+</html>

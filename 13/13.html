@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Завдання 13 тижня</title>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js">  </script>
+    <script src="https://raw.githack.com/AR-jsorg/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <style>
+         .arjs-loader {
+         height: 100%;
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         background-color: rgba(0, 0, 0, 0.8);
+         z-index: 9999;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+         .arjs-loader div {
+         text-align: center;
+         font-size: 1.25em;
+         color: white;
+         }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+        
+     <div class="arjs-loader">
+ <div>Loading, please wait...</div>
+ </div>
+ <a-scene 
+   vr-mode-ui="enabled: false;"
+   renderer="logarithmicDepthBuffer: true;" 
+   embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+
+<!--</a-nft>-->
+ <a-nft 
+ type="nft"
+ url="curso-de-mat"
+ smooth="true"
+ smoothCount="10"
+ smoothTolerance=".01"
+ smoothThreshold="5">
+<!--LHC-->
+        <a-torus position = "25 30 20" rotation="0 0 0" radius="3" material="color: yellow; opacity: 0.2; transparent: true"></a-torus>
+<!--proton 1-->   
+        <a-entity position="25 30 20" rotation="0 0 0" animation="property: rotation; to: 0 0 -360; loop: true; dur: 6000">
+        <a-sphere position="0 3 0" color="#0099ff" radius="0.1" light="type: point; intensity: 2"></a-sphere>
+        </a-entity>
+
+<!--proton 2-->
+        <a-entity position="25 30 20" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 6000">
+        <a-sphere position="0 3 0" color="#0099ff" radius="0.1" light="type: point; intensity: 2"></a-sphere>
+        </a-entity>  
+</a-nft>
+ <a-entity camera></a-entity>
+ </a-scene>
+</body>
+</html>

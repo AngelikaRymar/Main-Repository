@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Завдання 11 тижня</title>
+</head>
+<body>
+	<script src="https://threejs.org/build/three.min.js"></script>
+	<script src="https://raw.githack.com/mrdoob/three.js/dev/examples/js/loaders/GLTFLoader.js"></script>
+	<script src="https://raw.githack.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js"></script>
+<script>
+	
+	
+	var renderer = new THREE.WebGLRenderer({antialias: true});
+	renderer.setClearColor(0xbc8f8f);
+	renderer.setPixelRatio(window.devicePixelRatio);
+	renderer.setSize(window.innerWidth, window.innerHeight); 
+	document.body.appendChild(renderer.domElement);
+
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera.position.set(-10, 267, 398);
+            
+
+    var scene = new THREE.Object3D();
+    scene.add(camera); 
+
+    window.addEventListener('resize', function() { 
+        var WIDTH = window.innerWidth, HEIGHT = window.innerHeight; 
+        renderer.setSize(WIDTH, HEIGHT); 
+        camera.aspect = WIDTH / HEIGHT; 
+        camera.updateProjectionMatrix(); 
+    }); 
+
+    var lightOne = new THREE.AmbientLight(0xffff, 5);
+        lightOne.position.set(-300, 200, 300);
+    scene.add(lightOne); 
+
+    var lightTwo=new THREE.PointLight(0xfffff, 5); 
+        lightTwo.position.set(-350, 290, 360); 
+    scene.add(lightTwo);
+
+	var GLTF = new THREE.GLTFLoader(); 
+       
+    GLTF.load("https://github.com/mrdoob/three.js/blob/dev/examples/models/gltf/LeePerrySmith/LeePerrySmith.glb", function(mesh){
+                           
+                flamingo = mesh.scene;
+
+                flamingo.traverse(function(obj){
+                    if (obj.isMesh) {
+                        obj.castShadow = true;
+                        obj.receiveShadow = true;
+                    }
+                });
+                
+                flamingo.position.set(-100, -20, 300); 
+
+                scene.add(flamingo);
+            });            
+
+        controls = new THREE.OrbitControls(camera,renderer.domElement); 
+            controls.autoRotate = true;
+            requestAnimationFrame(render);
+
+            function render() {
+                controls.update(); 
+                renderer.render(scene, camera);
+         
+                requestAnimationFrame(render);
+			}
+
+	function animate()
+	{
+    	controls.update();
+    	requestAnimationFrame(animate);
+    	renderer.render(scene, camera);
+	}
+	
+	</script>
+</body>
+</html>

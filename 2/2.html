@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+	<meta charset="utf-8">
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js">  </script>
+	<a-scene>
+		<a-sky color="#f4a460"
+		        animation="property: components.material.material.color;
+			type: color; from: #f4a460; to: blue; loop: true; dur: 4000"> </a-sky>
+		<a-torus animation="property: position; to: 2 1 -5; dur: 5000; easing: linear; loop: false"
+			 position="-2 1 -5" color="cyan" radius="1.2"> </a-torus>
+		<a-cylinder color="red" height="1.9" radius="0.05"
+			 position="-2 -1 -5"> </a-cylinder>
+		<a-cylinder color="red" height="2" radius="0.05"
+			 position="-3 -1 -5"> </a-cylinder>
+		<a-torus-knot position="-3 1 -5" color="#ff6347" radius="1.2"
+			 radius-tubular="0.15" p="2" q="7"> </a-torus-knot>
+		<a-plane width="9" height="2" position="3 1 -9"> </a-plane>
+		<a-image src="tecture.jpg" width="7" height="7" rotation="-55 0 0"
+			 position="-2 -2 -5"></a-image> 
+		<a-text color='#4b0082' width="10" position="-0.5 1 -6.2"
+			 animation="property: rotation; to: 0 270 0; loop: true; dur: 4000"
+			 value="Ласкаво просимо до VR!" font="a_OldTyper_Italic-msdf.json" negate="false"> </a-text>
+	</a-scene>
+</html>
